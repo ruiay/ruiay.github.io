@@ -4,18 +4,20 @@
 <head>
   <meta charset="UTF-8">
   
-    <title>Hello World | ruiaylin&#39;s Blog</title>
+    <title>python-multi-threading | ruiaylin&#39;s Blog</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=3, minimum-scale=1">
     
     <meta name="author" content="ruichao.lin">
     
-    <meta name="description" content="Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in ">
+    <meta name="description" content="python mult-threading
+
+在运维工作中，随着业务和系统的发展，集群规模会随之增长，就会面临一个大规模，批量运维的难题，这也就要求了，日常的操作，变更，查询，维护任务要能够系统化。并尽可能做到，并发或者并行。运维工具脚本语言中 python 就成了一个很有用利器。python的多线">
     
     
     
     <meta name="twitter:card" content="summary" />
     <meta name="twitter:site" content="ruiaylin" />
-    <meta name="twitter:title" content="Hello World | ruiaylin&#39;s Blog" />
+    <meta name="twitter:title" content="python-multi-threading | ruiaylin&#39;s Blog" />
       
     
     
@@ -72,15 +74,15 @@
 		<header class="article-info clearfix">
   <h1 itemprop="name">
     
-      <a href="/2014/07/21/hello-world/" title="Hello World" itemprop="url">Hello World</a>
+      <a href="/2014/07/21/python-multi-threading/" title="python-multi-threading" itemprop="url">python-multi-threading</a>
   </h1>
   <p class="article-author">By
     
       <a href="http://yoursite.com" title="ruichao.lin">ruichao.lin</a>
     </p>
   <p class="article-time">
-    <time datetime="2014-07-21T02:00:50.000Z" itemprop="datePublished">7月 21 2014</time>
-    更新日期:<time datetime="2014-07-21T07:42:19.000Z" itemprop="dateModified">7月 21 2014</time>
+    <time datetime="2014-07-21T07:36:46.000Z" itemprop="datePublished">7月 21 2014</time>
+    更新日期:<time datetime="2014-07-21T07:36:46.000Z" itemprop="dateModified">7月 21 2014</time>
     
   </p>
 </header>
@@ -89,28 +91,64 @@
 		
 		<div id="toc" class="toc-article">
 			<strong class="toc-title">文章目录</strong>
-		<ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Quick_Start"><span class="toc-number">1.</span> <span class="toc-text">Quick Start</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Create_a_new_post"><span class="toc-number">1.1.</span> <span class="toc-text">Create a new post</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Run_server"><span class="toc-number">1.2.</span> <span class="toc-text">Run server</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Generate_static_files"><span class="toc-number">1.3.</span> <span class="toc-text">Generate static files</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Deploy_to_remote_sites"><span class="toc-number">1.4.</span> <span class="toc-text">Deploy to remote sites</span></a></li></ol></li></ol>
+		<ol class="toc"><li class="toc-item toc-level-4"><a class="toc-link" href="#python_mult-threading"><span class="toc-number">1.</span> <span class="toc-text">python mult-threading</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#python多线程的概述和一些不足"><span class="toc-number">2.</span> <span class="toc-text">python多线程的概述和一些不足</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#使用多线程的方式"><span class="toc-number">2.1.</span> <span class="toc-text">使用多线程的方式</span></a></li></ol></li></ol>
 		</div>
 		
-		<p>Welcome to <a href="http://hexo.io/" target="_blank" rel="external">Hexo</a>! This is your very first post. Check <a href="http://hexo.io/docs/" target="_blank" rel="external">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="http://hexo.io/docs/troubleshooting.html" target="_blank" rel="external">trobuleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="external">GitHub</a>.</p>
-<h2 id="Quick_Start">Quick Start</h2>
-<h3 id="Create_a_new_post">Create a new post</h3>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo new <span class="string">"My New Post"</span></div></pre></td></tr></table></figure>
+		<h4 id="python_mult-threading">python mult-threading</h4>
+<blockquote>
+<p>在运维工作中，随着业务和系统的发展，集群规模会随之增长，就会面临一个大规模，<br>批量运维的难题，这也就要求了，日常的操作，变更，查询，维护任务要能够系统化。<br>并尽可能做到，并发或者并行。运维工具脚本语言中 python 就成了一个很有用利器。<br>python的多线程在实际工作中，还是能够提高很大的工作效率的。 </p>
+</blockquote>
+<h4 id="python多线程的概述和一些不足">python多线程的概述和一些不足</h4>
+<blockquote>
+<p> python是支持多线程的，并且是native的线程。主要是通过thread和threading这两个<br> 模块来实现的。thread模块是比较底层的，threading模块是对thread做了一些包装<br> threading 模块按照OOP的思想对thread做了封装，主要线程的操作对象化了，创建了<br> 叫Thread的class 。</p>
+</blockquote>
+<h5 id="使用多线程的方式">使用多线程的方式</h5>
+<blockquote>
+<p>一般来说，使用线程有两种模式，创建任务函数，讲函数传递给thread对象执行<br>另一种是创建一个类，从Thread继承，把线程执行的代码放到这个新的class里面的run<br>方法中</p>
+<p>创建执行方法 1 : thread.start_new_thread ( function, args[, kwargs] )<br>  function - 线程函数。<br>  args     - 传递给线程函数的参数,他必须是个tuple类型 like thie (1,2)<br>  kwargs   - 可选参数。</p>
+</blockquote>
+<p>样例如下：</p>
+<pre><code><span class="keyword">import</span> sys, os , thread  
+<span class="comment"># 为线程定义 task 函数</span>
+<span class="function"><span class="keyword">def</span> <span class="title">prinft</span><span class="params">( threadName, delay)</span>:</span>
+   count = <span class="number">0</span>
+   <span class="keyword">while</span> count &lt; <span class="number">5</span>:
+      time.sleep(delay)
+      count += <span class="number">1</span>
+      <span class="keyword">print</span> <span class="string">"%s: %s"</span> % ( threadName, time.ctime(time.time()) )  
 
-<p>More info: <a href="http://hexo.io/docs/writing.html" target="_blank" rel="external">Writing</a></p>
-<h3 id="Run_server">Run server</h3>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo server</div></pre></td></tr></table></figure>
+<span class="comment"># 创建两个线程</span>
+<span class="keyword">try</span>:
+   thread.start_new_thread( prinft, (<span class="string">"Thread-1"</span>, <span class="number">2</span>, ) )
+   thread.start_new_thread( prinft, (<span class="string">"Thread-2"</span>, <span class="number">4</span>, ) )
+<span class="keyword">except</span>:
+   <span class="keyword">print</span> <span class="string">"Error: unable to start thread"</span>
+</code></pre><blockquote>
+<p>创建线程类ClASS 2 ： 完成跟上述功能一致<br>创建类 prinft 继承自 threading.Thread</p>
+</blockquote>
+<pre><code><span class="comment">#线程类创建</span>
+<span class="class"><span class="keyword">class</span> <span class="title">PRINFT</span><span class="params">(threading.Thread)</span>:</span>
+    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self,threadname, delay)</span>:</span>
+        threading.Thread.__init__(self)
+        self.name = threadname   
+        self.delay = delay
+    <span class="function"><span class="keyword">def</span> <span class="title">run</span><span class="params">(self)</span>:</span>
+        threadName = self.name
+        count = <span class="number">0</span>
+        <span class="keyword">while</span> count &lt; <span class="number">5</span>:
+            time.sleep(self.delay)
+            count += <span class="number">1</span>
+            <span class="keyword">print</span> <span class="string">"%s: %s"</span> % ( threadName, time.ctime(time.time()) )   
 
-<p>More info: <a href="http://hexo.io/docs/server.html" target="_blank" rel="external">Server</a></p>
-<h3 id="Generate_static_files">Generate static files</h3>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo generate</div></pre></td></tr></table></figure>
-
-<p>More info: <a href="http://hexo.io/docs/generating.html" target="_blank" rel="external">Generating</a></p>
-<h3 id="Deploy_to_remote_sites">Deploy to remote sites</h3>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo deploy</div></pre></td></tr></table></figure>
-
-<p>More info: <a href="http://hexo.io/docs/deployment.html" target="_blank" rel="external">Deployment</a></p>
-  
+<span class="comment">#创建两个线程</span>
+consumers = [ PRINFT(<span class="string">"thread-"</span>+str(i) ,i+<span class="number">1</span> ,  )  <span class="keyword">for</span> i <span class="keyword">in</span> xrange(<span class="number">2</span>) ] 
+<span class="comment">#开启线程</span>
+<span class="keyword">for</span> w <span class="keyword">in</span> consumers:
+    w.start()
+<span class="comment">#线程同步</span>
+<span class="keyword">for</span> w <span class="keyword">in</span> consumers:
+    w.join()
+</code></pre>  
 	</div>
 		<footer class="article-footer clearfix">
 
@@ -119,7 +157,7 @@
 
 <div class="article-share" id="share">
 
-  <div data-url="http://yoursite.com/2014/07/21/hello-world/" data-title="Hello World | ruiaylin&#39;s Blog" data-tsina="1828464541" class="share clearfix">
+  <div data-url="http://yoursite.com/2014/07/21/python-multi-threading/" data-title="python-multi-threading | ruiaylin&#39;s Blog" data-tsina="1828464541" class="share clearfix">
   </div>
 
 </div>
@@ -138,9 +176,9 @@
 
 
 <div class="next">
-<a href="/2013/05/29/python-multi-threading/"  title="python-multi-threading">
+<a href="/2014/07/21/hello-world/"  title="Hello World">
  <strong>NEXT:</strong><br/> 
- <span>python-multi-threading
+ <span>Hello World
 </span>
 </a>
 </div>
@@ -153,7 +191,7 @@
 
   <div id="toc" class="toc-aside">
   <strong class="toc-title">文章目录</strong>
-  <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Quick_Start"><span class="toc-number">1.</span> <span class="toc-text">Quick Start</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Create_a_new_post"><span class="toc-number">1.1.</span> <span class="toc-text">Create a new post</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Run_server"><span class="toc-number">1.2.</span> <span class="toc-text">Run server</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Generate_static_files"><span class="toc-number">1.3.</span> <span class="toc-text">Generate static files</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Deploy_to_remote_sites"><span class="toc-number">1.4.</span> <span class="toc-text">Deploy to remote sites</span></a></li></ol></li></ol>
+  <ol class="toc"><li class="toc-item toc-level-4"><a class="toc-link" href="#python_mult-threading"><span class="toc-number">1.</span> <span class="toc-text">python mult-threading</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#python多线程的概述和一些不足"><span class="toc-number">2.</span> <span class="toc-text">python多线程的概述和一些不足</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#使用多线程的方式"><span class="toc-number">2.1.</span> <span class="toc-text">使用多线程的方式</span></a></li></ol></li></ol>
   </div>
 
 <div id="asidepart">
